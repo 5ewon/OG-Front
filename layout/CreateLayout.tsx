@@ -114,7 +114,7 @@ const CreateLayout = ({
 												<S.FrameInput
 													type="number"
 													min="2"
-													max="5"
+													max="10"
 													value={size.column}
 													onChange={(e) => setSize({ ...size, column: parseInt(e.target.value) })}
 												/>
@@ -122,7 +122,7 @@ const CreateLayout = ({
 												<S.FrameInput
 													type="number"
 													min="2"
-													max="10"
+													max="5"
 													value={size.row}
 													onChange={(e) => setSize({ ...size, row: parseInt(e.target.value) })}
 												/>

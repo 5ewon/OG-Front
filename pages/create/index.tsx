@@ -52,7 +52,8 @@ const Create = () => {
 	<틀제목>제목삽입</틀제목>
 	${`<행>
 		${'<열>내용삽입</열>'.repeat(size.row)}
-	</행>`.repeat(size.column)}
+	</행>
+	`.repeat(size.column)}
 </틀>`
 
 		setDocs({ ...docs, contents: frame })

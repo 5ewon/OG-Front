@@ -1,15 +1,25 @@
 import { decodeContents } from './requestContents'
+import React, { useState } from 'react'
 
 const documentation = (content: string) => {
+	let color = content.substring(content.indexOf('선색=(')+4, content.indexOf(');'));
+	// console.log(content.indexOf('선색=(')+4)
+	// let color;
+	// let a = document.getElementById('a');
+	// color = a?.style.backgroundColor;
+	console.log(content.indexOf('선색=(')+4);
+	console.log(color)
+
 	content = content
-		.replace(/<틀>/gi, `<details close><table class="frame_table" style="width:100%;" >`)
+		.replace(/<틀>/gi, `<details open><table class="frame_table" style="width:100%;" >`)
 		.replace(/<\/틀>/gi, `</table></details>`)
-		.replace(/<틀제목/gi, `<summary class="frame_caption" `)
-		.replace(/<\/틀제목>/gi, `<br><span style="color:white; font-size:14px">[ 펼치기 · 접기 ]</span></summary>`)
+		.replace(/<틀제목/gi, `<summary id="a" class="frame_caption" `)
+		.replace(/<\/틀제목>/gi, `<br><span style="color:white; font-size:14px;">[ 펼치기 · 접기 ]</span></summary>`)
 		.replace(/<행>/gi, `<tr>`)
 		.replace(/<\/행>/gi, `</tr>`)
 		.replace(/<열/gi, `<td class="frame_td" `)
-		.replace(/스타일={{/gi, `style="`)
+		// .replace(/<열/gi, `<td class="frame_td" `)
+		.replace(/스타일={{/gi, `style=" `)
 		.replace(/배경색=\(/gi, `;background-color:`)
 		.replace(/글자색=\(/gi, `;color:`)
 		.replace(/<\/열>/gi, `</td>`)
